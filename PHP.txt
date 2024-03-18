@@ -1,0 +1,105 @@
+<html>
+    <head><title>insert</title>
+    </head>
+    <body>
+        
+    <?php
+         include("dbconnection.php");
+         $title=$_POST("title");
+         $isbn=$_POST("isbn");
+         $edit=$_POST("edit");
+         $publi=$_POST("publi");
+         $author=$_POST("author");
+         $query="insert into books(title,isbn,author,edition,publi) values('$title','$isbn,'$author','$edit','$publi');";
+         $res=mysqli_query($db,$qurey);
+        ?>
+        <h2>book information are inserted sucessfully</h2>
+    </body>
+</html>
+
+
+
+<?php
+define('DB_SERVER','localhost:12345');
+define('DB_UN','root');
+define('DB_PASS','123456789');
+define('DB_NAME','college');
+$db=mysqli_connect(DB_SERVER,DB_UN,DB_PASS,DB_NAME);
+?>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body bgcolor='green'>
+    <h2>SIMPLE LIBRARY MANAGEMENT SYSTEM</h2>
+<table border="2" bgcolor="red">
+   <form action="ins.php" method="post">
+        <tr>
+        <td>
+           ENTER TITLE:
+        </td>
+        <td>
+          <input type="text" name="title">
+        </td>
+
+        </tr>
+        <tr>
+            <td>
+               ENTER ISBN:
+            </td>
+            <td>
+              <input type="text" name="isbn">
+            </td>
+    
+            </tr>
+            <tr>
+                <td>
+                   ENTER AUTHOR:
+                </td>
+                <td>
+                  <input type="text" name="author">
+                </td>
+        
+                </tr>
+                <tr>
+                    <td>
+                       ENTER EDITION:
+                    </td>
+                    <td>
+                      <input type="text" name="edit">
+                    </td>
+            
+                    </tr>
+                    <tr>
+                        <td>
+                           ENTER PUBLICATION:
+                        </td>
+                        <td>
+                          <input type="text" name="publi">
+                        </td>
+                
+                        </tr>
+                        <tr>
+                            <td>
+                               
+                            </td>
+                            <td>
+                              <input type="SUBMIT" value="submit">
+                              <INPUT type="reset" value="reset">
+                            </td>
+                    
+                            </tr>
+    </form>
+</table>
+</body>
+</html>
+

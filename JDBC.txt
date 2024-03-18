@@ -1,0 +1,328 @@
+package com.example.demo;
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class HelloApplication extends Application{
+
+        @Override
+        public void start(Stage primaryStage) throws Exception
+        {
+            // TODO Auto-generated method stub
+            Button btn1=new Button("1");
+            Button btn2=new Button("2");
+            Button btn3=new Button("3");
+            btn1.setOnAction(new EventHandler<ActionEvent>() {
+
+                @Override
+                public void handle(ActionEvent arg0)  {
+                    int e=5;
+                    //try{
+                       // HelloApplication.display();
+                    //}
+                   // catch(Exception e){
+                        System.out.println("THE ERROR IS: "+e);
+                    //}
+
+
+                }
+            });
+
+            btn2.setOnAction(new EventHandler<ActionEvent>() {
+
+                @Override
+                public void handle(ActionEvent arg0)  {
+
+                    int e=5;
+                    //try{
+                        //HelloApplication.insert();
+                   // }
+                    //catch(Exception e){
+                         System.out.println("THE ERROR IS: "+e);
+                    //}
+                }
+            });
+            btn3.setOnAction(new EventHandler<ActionEvent>() {
+
+                @Override
+                public void handle(ActionEvent arg0)  {
+                    int e=5;
+                    //try{
+                        //HelloApplication.del();
+                    //}
+                    //catch(Exception e){
+                        System.out.println("THE ERROR IS: "+e);
+                    //}
+                }
+            });
+            HBox root=new HBox();
+            root.getChildren().add(btn1);
+            Scene scene=new Scene(root,400,400);
+            Label l1=new Label("Simple Application");
+            Label l2=new Label("press 1 to display the data");
+            Label l3=new Label("press 2 to insert the data");
+            Label l4=new Label("press 3 to delete the data");
+
+            root.getChildren().addAll(l1,l2,l3,l4,btn1,btn2,btn3);
+
+
+
+            primaryStage.setTitle("First JavaFX Application");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        }
+        public static void main (String[] args)
+        {
+            launch(args);
+        }
+        /*static void display() throws Exception
+        {
+            String path="jdbc:mysql://localhost:12345/colleges";
+            String user="root";
+            String pass="123456789";
+            String query="select * from student;";
+            Connection conn = DriverManager.getConnection(path, user, pass);
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            while (rs.next()) {
+
+
+                System.out.println("The Sid is:" + rs.getInt(1));
+                System.out.println("The name is:" + rs.getString(2));
+                System.out.println("The CGP is:" + rs.getDouble(3));
+                System.out.print("\n");
+            }
+            conn.close();
+        }
+        static void del() throws Exception
+        {
+            String path="jdbc:mysql://localhost:12345/colleges";
+            String user="root";
+            String pass="123456789";
+            Scanner input=new Scanner(System.in);
+            System.out.print("Enter the Student_id to delete: ");
+            int a= input.nextInt();
+            String query="delete from student where sid="+a+";";
+            Connection conn = DriverManager.getConnection(path, user, pass);
+            Statement st = conn.createStatement();
+            int rs = st.executeUpdate(query);
+            System.out.println("The number rows affected: "+rs);
+            System.out.println("Deleted successfully");
+            conn.close();
+        }
+    static void insert() throws Exception
+    {
+
+        String path = "jdbc:mysql://localhost:12345/colleges";
+        String user = "root";
+        String pass = "123456789";
+        Scanner input=new Scanner(System.in);
+
+        System.out.print("Enter the student id: ");
+        int id= input.nextInt();
+        System.out.print("Enter the student name: ");
+        String name= input.next();
+        System.out.print("Enter the CGP: ");
+        Double cgp=input.nextDouble();
+        String query = "insert into student values ("+id+","+"'"+name+"'"+","+cgp+");";
+        Connection conn = DriverManager.getConnection(path, user, pass);
+        Statement st = conn.createStatement();
+        int rs = st.executeUpdate(query);
+        System.out.println("The number rows affected: "+rs);
+        System.out.println("inserted successfully");
+        conn.close();
+
+    }*/
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.sql.*;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        System.out.println("THIS PROGRAM IS FOR INSERTING THE STUDENT INFORMATION");
+        System.out.println("Follow the below instruction:");
+        System.out.println("1.To display the values");
+        System.out.println("2.To insert the values");
+        System.out.println("3.To delete the values");
+        Scanner input=new Scanner(System.in);
+        System.out.print("Enter your option: ");
+        int a= input.nextInt();
+        //while(true) {
+            switch (a) {
+                case 1:
+                    Main.display();
+                    break;
+                case 2:
+                    Main.insert();
+                    break;
+                case 3:
+                    Main.del();
+                    break;
+                default:
+                    System.out.println("please Enter The Correct Option");
+
+            }
+       // }
+    }
+    static void insert() throws Exception
+    {
+
+        String path = "jdbc:mysql://localhost:12345/colleges";
+        String user = "root";
+        String pass = "123456789";
+        Scanner input=new Scanner(System.in);
+
+        System.out.print("Enter the student id: ");
+        int id= input.nextInt();
+        System.out.print("Enter the student name: ");
+        String name= input.next();
+        System.out.print("Enter the CGP: ");
+        Double cgp=input.nextDouble();
+        String query = "insert into student values ("+id+","+"'"+name+"'"+","+cgp+");";
+        Connection conn = DriverManager.getConnection(path, user, pass);
+        Statement st = conn.createStatement();
+        int rs = st.executeUpdate(query);
+        System.out.println("The number rows affected: "+rs);
+        System.out.println("inserted successfully");
+        conn.close();
+
+    }
+        static void display() throws Exception
+        {
+            String path="jdbc:mysql://localhost:12345/colleges";
+            String user="root";
+            String pass="123456789";
+            String query="select * from student;";
+            Connection conn = DriverManager.getConnection(path, user, pass);
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            while (rs.next()) {
+
+
+                System.out.println("The Sid is:" + rs.getInt(1));
+                System.out.println("The name is:" + rs.getString(2));
+                System.out.println("The CGP is:" + rs.getDouble(3));
+                System.out.print("\n");
+            }
+            conn.close();
+        }
+    static void del() throws Exception
+    {
+        String path="jdbc:mysql://localhost:12345/colleges";
+        String user="root";
+        String pass="123456789";
+        Scanner input=new Scanner(System.in);
+        System.out.print("Enter the Student_id to delete: ");
+        int a= input.nextInt();
+        String query="delete from student where sid="+a+";";
+        Connection conn = DriverManager.getConnection(path, user, pass);
+        Statement st = conn.createStatement();
+        int rs = st.executeUpdate(query);
+        System.out.println("The number rows affected: "+rs);
+        System.out.println("Deleted successfully");
+        conn.close();
+    }
+}
+
+
+
+
+
+
+
+create database colleges;
+use colleges;
+create table books(title varchar(20),isbn int primary key,author varchar(30),edition varchar(20),publi varchar(25));
+desc books;
+create table student(sid int,sname varchar(20),cgp decimal(5,2));
+desc student;
+insert into student values(1,'thiru',8.10);
+insert into student values(2,'vishnu',8.50);
+alter table student modify sid int primary key;
+select * from student;
+delete from student where sid=3;
+drop table student;

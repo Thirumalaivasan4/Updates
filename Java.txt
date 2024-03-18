@@ -1,0 +1,174 @@
+// type casting and division
+public class Main {
+    public static void main(String[] args) {
+        int a=11;
+        int b=5;
+        double c;
+        double d;
+        d=a/b;
+        c=(double) a/b;
+        System.out.println(c);
+        System.out.println(d);
+    }
+}
+
+
+
+// increnment and decriment
+public class id {
+    public static void main(String[] args) {
+       int a=5;
+       int b=6;
+       int c=0,d,c1,d1;
+       c=a++;
+       System.out.println(c);
+       System.out.println(a);
+       d=++a;
+       System.out.println(d);
+       System.out.println(a);
+       c1=b++;
+       System.out.println(c1);
+       System.out.println(b);
+       d1=++b;
+       System.out.println(d1);
+       System.out.println(b);
+
+    }
+}
+
+
+//Adding the diagonal element of array both primary and secondary.
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        int i,j;
+        int sum=0;
+        Scanner ip=new Scanner(System.in);
+        System.out.println("Enter the number of rows: ");
+        int row= ip.nextInt();
+        System.out.println("Enter the number of columns: ");
+        int col= ip.nextInt();
+        if(row==col){
+            int a[][]=new int[row][col];
+
+            for (i = 0; i<row;i++){
+                for (j = 0; j<col;j++){
+                    System.out.println("Enter the values of the index"+"["+i+"]"+"["+j+"]");
+                    a[i][j]=ip.nextInt();
+                }
+
+            }
+            System.out.println("THE VALUES YOU GIVEN IS: ");
+            for (i = 0; i<row;i++){
+                for (j = 0; j<col;j++) {
+                    System.out.print(a[i][j] + "\t");
+                }
+                System.out.print("\n");
+            }
+
+            i=0;
+            j=0;
+
+            while(i<row){
+                sum +=a[i][j];
+                i++;
+                j++;
+            }
+            i=0;
+            j=col-1;
+            while(i<row)
+            {
+                if(i!=j)
+                    sum += a[i][j];
+                i++;
+                j--;
+            }
+            System.out.println("The result after adding both primary and secondary diagonal is "+sum);
+        }
+        else{
+            System.out.println("THE ROWS AND COLUMNS MUST BE EQUAL. ");
+        }
+
+    }
+
+}
+
+
+find the highest mark and average mark secured by him in "s" number of subjects.
+
+int max=arr[0];
+double sum=arr[0];
+for(i=1;i<arr.length;i++){
+  sum=sum+arr[i];
+  if(arr[i]>max){
+	max=arr[i];}
+  
+}
+result=max;
+mark_avg=sum/(arr.length);
+System.out.println(result);
+System.out.print(mark_avg);
+
+
+calculate sum of  all the numbers divisible by 3 from 0 to n. Print the sum.
+
+int result=1;
+int i=0;
+while(result<=n){
+  if(i%2==0){
+    if(i%3==0){
+      sum=sum+i;
+    }
+    result+=1;
+    }
+  i+=1;
+}
+System.out.print(sum);
+
+
+to find the perimeter and area of a circle given a value of radius
+
+if(radius<=0){
+	System.out.println("please enter non zero positive number ");
+}
+else{
+perimeter = 2*Math.PI*radius;
+area =Math.PI * radius * radius;
+System.out.println(perimeter);
+System.out.print(area);
+}
+
+
+check whether the number is an Armstrong number or not.
+Armstrong Number:
+
+int temp=n;
+int c=0,t;
+while(n>0){
+  t=n%10;
+  n=n/10;
+  c=c+(t*t*t);
+}
+if(temp==c){
+  result=0;}
+else{
+  result=0;}
+System.out.print(result);
+
+
+
+find the largest among three numbers x,y, and z. You should use if-then-else construct in Java.
+
+if(x >= y && x >= z){
+result=x;
+}
+else if(y >= z){
+  
+result=y;
+}
+else{
+result=z;
+}
+//Evaluation code
+System.out.print(result);
+
